@@ -44,7 +44,9 @@ class PostController extends Controller
         $data = [
             'title' => $request->title,
             'content' => $request->content,
-            'image_path' => $path
+            'image_path' => $path,
+            'user_id' => auth()->user()->id,
+        
         ];
 
         Post::create($data);
@@ -57,7 +59,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('posts.show', ['post' => $post]);
+        return view('post.show', ['post' => $post]);
     }
 
     /**
@@ -65,7 +67,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.edit', ['post' => $post]);
+        return view('post.edit', ['post' => $post]);
     }
 
     /**

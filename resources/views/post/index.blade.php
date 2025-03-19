@@ -14,7 +14,7 @@
                         <ul>
                             @foreach($posts as $post)
                             <li>
-                                <h2>{{ $post->title }}</h2>
+                                <h2><a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a></h2>
                                 <p>{{ $post->content }}</p>
                                 @if ($post->image_path)
                                     <img src="{{ asset('storage/' . $post->image_path) }}" alt="Post Image">
@@ -28,7 +28,7 @@
                                     </button>
                                 </form>
                             </li>
-                        @endforeach
+                            @endforeach
                         </ul>
                     </div>
                 </div>
